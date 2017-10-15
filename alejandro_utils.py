@@ -350,7 +350,6 @@ def check_contours(A, Cn, thr=None, thr_method='max', maxthr=0.2, nrgthr=0.9, di
 
 
 
-
 def nb_view_patches(Yr, A, C, b, f, d1, d2, YrA = None, image_neurons=None, thr=0.99, denoised_color=None,cmap='viridis'):
     """
     Interactive plotting utility for ipython notebook
@@ -401,6 +400,9 @@ def nb_view_patches(Yr, A, C, b, f, d1, d2, YrA = None, image_neurons=None, thr=
 
     x = np.arange(T)
     z = old_div(np.squeeze(np.array(Y_r[:, :].T)), 100)
+    
+    
+    
     if image_neurons is None:
         image_neurons = A.mean(1).reshape((d1, d2), order='F')
 
@@ -447,6 +449,20 @@ def nb_view_patches(Yr, A, C, b, f, d1, d2, YrA = None, image_neurons=None, thr=
             source2.trigger('change')
             source.trigger('change')
         """)
+        
+    print x.shape
+    print z.shape
+    y_array = z.T
+    t = np.arange(3000)
+    for k in range(len(y_array)):
+        #print x[k]
+        #print z[k]
+        plt.plot(t,y_array[k]+1*k)
+    
+        #x = np.arange(T)
+        #z = old_div(np.squeeze(np.array(Y_r[:, :].T)), 100)
+        
+    plt.show()
 
     plot = bpl.figure(plot_width=600, plot_height=300)
     plot.line('x', 'y', source=source, line_width=1, line_alpha=0.6)

@@ -13,7 +13,7 @@ import matplotlib.gridspec as gridspec
 import matplotlib.animation as animation
 
 import scipy.io
-from ensemble_utils import AnimatedScatter, ensemble_detect
+#from ensemble_utils import AnimatedScatter, ensemble_detect
 from alejandro_utils import com, plot_contours, check_contours, nb_view_patches
 
 #Load neuron locations/ROIs
